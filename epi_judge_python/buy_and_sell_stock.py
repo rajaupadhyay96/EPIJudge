@@ -6,7 +6,6 @@ from test_framework import generic_test
 def buy_and_sell_stock_once(prices: List[float]) -> float:
     res = 0
     minSoFar = float("inf")
-
     for price in prices:
         res = max(res, price-minSoFar)
         minSoFar = min(price, minSoFar)
