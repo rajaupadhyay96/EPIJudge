@@ -4,8 +4,20 @@ from test_framework import generic_test
 
 
 def plus_one(A: List[int]) -> List[int]:
-    # TODO - you fill in here.
-    return []
+    res = []
+    rem = 1
+
+    i = len(A)-1
+    while i >= 0:
+        summed_digit = A[i]+rem
+        res.append(summed_digit % 10)
+        rem = summed_digit // 10
+        i -= 1
+
+    if rem:
+       res.append(rem)
+
+    return res[::-1]
 
 
 if __name__ == '__main__':
