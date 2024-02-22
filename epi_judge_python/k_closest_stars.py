@@ -26,10 +26,21 @@ class Star:
     def __eq__(self, rhs):
         return math.isclose(self.distance, rhs.distance)
 
+import heapq
+import itertools
 
 def find_closest_k_stars(stars: Iterator[Star], k: int) -> List[Star]:
-    # TODO - you fill in here.
-    return []
+    arr = []
+
+    for star in stars:
+        heapq.heappush(arr, (star.distance, star))
+
+    result = []
+    for _ in range(k):
+        distance, star = heapq.heappop(arr)
+        result.append(star)
+
+    return result
 
 
 def comp(expected_output, output):
